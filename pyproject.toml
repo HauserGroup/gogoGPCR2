@@ -1,0 +1,17 @@
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gogoGPCR2"
+version = "0.1.0"
+authors = [{name="Jakob madsen", email="jsmadsen@sund.ku.dk" }]
+description = "Regenie QC and analysis in UKB RAP Jupyterlab"
+readme = "README.md"
+dependencies = ["hail==0.2.78", "jupyterlab"]
+requires-python = ">=3.6"
+
+[project.urls]
+"Homepage" = "https://github.com/HauserGroup/gogoGPCR2"
+"Bug Tracker" = "https://github.com/HauserGroup/gogoGPCR2/issues"
