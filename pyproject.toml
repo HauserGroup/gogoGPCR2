@@ -9,7 +9,7 @@ version = "0.1.0"
 authors = [{name="Jakob madsen", email="jsmadsen@sund.ku.dk" }]
 description = "Regenie QC and analysis in UKB RAP Jupyterlab"
 readme = "README.md"
-dependencies = ["hail==0.2.78", "jupyterlab"]
+dependencies = ["hail==0.2.78", "jupyterlab", "pandas", "dxpy"]
 requires-python = ">=3.6"
 
 [project.urls]
