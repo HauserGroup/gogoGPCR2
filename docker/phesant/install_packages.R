@@ -1,5 +1,3 @@
-# library(devtools)
-
 install.packages("remotes",
     repos = "http://cran.rstudio.com/",
     dependencies = TRUE

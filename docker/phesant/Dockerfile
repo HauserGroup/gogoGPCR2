@@ -15,7 +15,7 @@ RUN apt-get update -y && \
     zlib1g-dev
 
 COPY install_packages.R install_packages.R
-# RUN R -e "install.packages(c('git2r', 'devtools'), repos='http://cran.rstudio.com/', dependencies = TRUE)"  && \
+
 RUN Rscript install_packages.R
 
 RUN git clone https://github.com/jsture/PHESANT.git
