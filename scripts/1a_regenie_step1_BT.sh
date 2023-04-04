@@ -41,9 +41,12 @@ regenie \
  --bsize 1000 \
  --write-null-firth \
  --lowmem --lowmem-prefix tmp_preds \
- --verbose --threads 16
+ --verbose --threads 16 \
+ --covarExcludeList BMI_STD_PRS 
 "
 
 dx run swiss-army-knife -iin="${data_file_dir}/ukb_allChrs.GRCh38.bed" -iin="${data_file_dir}/ukb_allChrs.GRCh38.bim" -iin="${data_file_dir}/ukb_allChrs.GRCh38.fam" \
    -icmd="${run_regenie_step1}" \
    --tag="Step1" --instance-type "mem1_ssd1_v2_x16" --destination="/Data/step1/${PHENOTYPE}.${TRAIT}.LOCO" --brief --yes
+ 
+-iimage="ghcr.io/rgcgithub/regenie/regenie:v3.2.5.3.gz" --yes
