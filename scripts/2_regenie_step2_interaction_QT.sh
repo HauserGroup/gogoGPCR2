@@ -25,6 +25,7 @@ regenie \
   --phenoFile "${data_file_dir}/${PHENOTYPE}.${TRAIT}.final.tsv" \
   --covarFile "${data_file_dir}/covariates.tsv" \
   --pred "${PHENOTYPE}.${TRAIT}.step1_pred.list" \
+  #--pred "${data_file_dir}/${PHENOTYPE}.${TRAIT}.step1_pred.list" \
   --bsize 200 \
   --set-list "${data_file_dir}/${PHENOTYPE}.setlist" \
   --no-condtl \
