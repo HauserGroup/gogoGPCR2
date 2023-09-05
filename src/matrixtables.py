@@ -1,10 +1,9 @@
-import hail as hl
-import annotations as annotations
-import pandas as pd
 from functools import partial
-
 from pathlib import Path
-from typing import Optional, Union, List
+from typing import List, Optional, Union
+
+import hail as hl
+import pandas as pd
 
 
 def import_mt(
@@ -80,11 +79,10 @@ def lookup_regions(gene: str, mapping: pd.DataFrame) -> hl.expr.LocusExpression:
 def lookup_vcfs(
     mapping: pd.DataFrame, vcfdir: str, gene: str, version: str, field_id: int = 23157
 ) -> List[str]:
-
     chromosome, blocks, _, _ = get_position(gene, mapping)
 
     vcf_files = [
-        f"file://{vcfdir}/ukb{field_id}23148_c{chromosome}_b{block}_{version}.vcf.gz"
+        f"file://{vcfdir}/ukb{field_id}_c{chromosome}_b{block}_{version}.vcf.gz"
         for block in blocks
     ]
 
