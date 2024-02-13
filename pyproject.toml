@@ -1,17 +1,24 @@
 
-[build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "gogoGPCR2"
 version = "0.1.0"
-authors = [{name="Jakob madsen", email="jsmadsen@sund.ku.dk" }]
-description = "Regenie QC and analysis in UKB RAP Jupyterlab"
+authors = [
+    {name="Jakob madsen", email="jsmadsen@sund.ku.dk" },
+    {name = "jsture", email = "jsmadsen@sund.ku.dk"},
+]
+description = "Default template for PDM package"
 readme = "README.md"
-dependencies = ["hail==0.2.116", "jupyterlab==3.6.1", "pandas==2.1.0", "dxpy==0.351.0"]
-requires-python = "==3.9.16"
+dependencies = [
+    "hail==0.2.116",
+    "jupyterlab==3.6.1",
+    "pandas==2.1.0",
+    "dxpy==0.351.0",
+]
+requires-python = "==3.12.*"
+license = {text = "MIT"}
 
 [project.urls]
 "Homepage" = "https://github.com/HauserGroup/gogoGPCR2"
 "Bug Tracker" = "https://github.com/HauserGroup/gogoGPCR2/issues"
+[tool.pdm]
+distribution = false
