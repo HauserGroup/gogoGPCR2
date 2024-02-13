@@ -3,22 +3,30 @@
 name = "gogoGPCR2"
 version = "0.1.0"
 authors = [
-    {name="Jakob madsen", email="jsmadsen@sund.ku.dk" },
-    {name = "jsture", email = "jsmadsen@sund.ku.dk"},
+    { name = "Jakob madsen", email = "jsmadsen@sund.ku.dk" },
+    { name = "jsture", email = "jsmadsen@sund.ku.dk" },
 ]
 description = "Default template for PDM package"
 readme = "README.md"
 dependencies = [
-    "hail==0.2.116",
-    "jupyterlab==3.6.1",
-    "pandas==2.1.0",
-    "dxpy==0.351.0",
+    "hail>=0.2.127",
+    "jupyterlab>=4.1.1",
+    "pandas==2.2",
+    "dxpy>=0.351.0",
+    "pyzmq==25.1.2",
 ]
 requires-python = "==3.12.*"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 [project.urls]
 "Homepage" = "https://github.com/HauserGroup/gogoGPCR2"
 "Bug Tracker" = "https://github.com/HauserGroup/gogoGPCR2/issues"
 [tool.pdm]
 distribution = false
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pre-commit>=3.6.1",
+    "ruff>=0.2.1",
+    "black>=24.2.0",
+]
