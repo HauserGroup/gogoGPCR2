@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# Requirements: 
+# Requirements:
 # 03_plink_qc.sh must have been run
 
 # How to Run:
-# Run this shell script using: 
-#   sh partD-step1-qc-regenie.sh 
+# Run this shell script using:
+#   sh partD-step1-qc-regenie.sh
 # on the command line on your own machine
 
 # Inputs:
@@ -29,7 +29,7 @@ pheno_file_dir="/mnt/project/Data/phenotypes"
 data_file_dir="Data/step1"
 
 prompt="Enter phenotype for Step 1 (PHENOTYPE.${TRAIT}.final.tsv must exist and contain only binary phenotypes):   "
-read -p "$prompt" PHENOTYPE 
+read -p "$prompt" PHENOTYPE
 
 run_regenie_step1="
 regenie \
@@ -42,7 +42,7 @@ regenie \
  --write-null-firth \
  --lowmem --lowmem-prefix tmp_preds \
  --verbose --threads 16 \
- --covarExcludeList BMI_STD_PRS 
+ --covarExcludeList BMI_STD_PRS
 "
 
 dx run swiss-army-knife -iin="${data_file_dir}/ukb_allChrs.GRCh38.bed" -iin="${data_file_dir}/ukb_allChrs.GRCh38.bim" -iin="${data_file_dir}/ukb_allChrs.GRCh38.fam" \

@@ -4,7 +4,7 @@ TRAIT="BT"
 data_file_dir="/mnt/project/Burden"
 
 #prompt="Enter PHENOTYPE for Step 2 (GENE burden files, PHENOTYPE .tsv file, and PHENOTYPE.${TRAIT}.LOCO files must exist):   "
-#read -p "$prompt" PHENOTYPE 
+#read -p "$prompt" PHENOTYPE
 PHENOTYPE="metabolic"
 
 cp "${data_file_dir}/${PHENOTYPE}.${TRAIT}.LOCO/${PHENOTYPE}.${TRAIT}.step1_pred.list" .
@@ -35,14 +35,14 @@ regenie \
   --verbose
 "
 
-#   --use-null-firth "${PHENOTYPE}.${TRAIT}.step1_firth.list" 
+#   --use-null-firth "${PHENOTYPE}.${TRAIT}.step1_firth.list"
 #   --firth --approx \
 #   --anno-file "${data_file_dir}/${PHENOTYPE}.annotations" \
 
 
 #dx run swiss-army-knife -iin="/${PHENOTYPE}.${TRAIT}.LOCO/${PHENOTYPE}.${TRAIT}.step1_pred.list" \
 #   -icmd="${run_regenie_step2}" \
-#   --tag="Step2" --instance-type "mem1_hdd1_v2_x16" \ 
+#   --tag="Step2" --instance-type "mem1_hdd1_v2_x16" \
 #   -iimage="jsture/phesant2" \
 #   --destination="/Burden" --brief --yes;
 

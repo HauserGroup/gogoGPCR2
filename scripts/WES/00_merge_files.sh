@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Requirements: 
+# Requirements:
 # Please refer to readme.md for more information about the requirements
 
 # How to Run:
@@ -24,4 +24,4 @@ run_merge="cp /mnt/project/Bulk/Genotype\ Results/Genotype\ calls/ukb22418_c[1-9
 
 dx run swiss-army-knife -iin="/Data/dummy.file" \
    -icmd="${run_merge}" --tag="Step1" --instance-type "mem1_ssd1_v2_x16"\
-   --destination="/Data/step1" --brief --yes 
+   --destination="/Data/step1" --brief --yes

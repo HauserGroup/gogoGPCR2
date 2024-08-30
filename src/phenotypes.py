@@ -1,6 +1,6 @@
 import re
 import itertools
-from warnings import warn
+from pyspark.sql import functions as F
 
 
 def get_columns_to_keep(df, threshold=200) -> list:
@@ -25,7 +25,7 @@ def new_names(s: str) -> str:
     """
     s = s.replace("p", "x").replace("i", "")
 
-    if bool(re.search("_\d$", s)):
+    if bool(re.search(r"_\d$", s)):
         s += "_0"
     else:
         s += "_0_0"
@@ -69,7 +69,7 @@ def get_pheno_fields(participant, fields: list) -> list:
     phenos = "|".join(fields)
 
     pheno_fields = list(
-        participant.find_fields(lambda f: bool(re.match(f"^p({phenos})\D", f.name)))
+        participant.find_fields(lambda f: bool(re.match(f"^p({phenos})\D", f.name)))  # type: ignore
     )
 
     return [f.name for f in pheno_fields]
@@ -103,33 +103,3 @@ def fix_colnames(df):
     print(colnames[:10])
 
     return df.toDF(*colnames)
-
-
-def filter_to_200k(
-    df,
-    filter_path="/mnt/project/Data/filters/samples_in_200k_exomes.csv",
-    spark=None,
-):
-    warn("This function is deprecated if using 450k exomes", DeprecationWarning, stacklevel=2)
-    """filter df to only samples with WES data
-    Parameters
-    ----------
-    df : UKB spark df
-        from participant or similar
-    filter_path : str, optional
-        location of file with single column of sample ids, for example generated
-        by cohort browser, by default "/mnt/project/Data/filters/samples_in_200k_exomes.csv"
-    Returns
-    -------
-    Spark df
-        df of length 200k
-    """
-
-    samples_with_exomes = spark.read.csv(filter_path, header=True)
-    samples_with_exomes = samples_with_exomes.toDF("xeid")
-
-    df = df.join(samples_with_exomes, on="xeid", how="leftsemi")
-
-    print(f"Samples with exomes: {df.count()}")
-
-    return df

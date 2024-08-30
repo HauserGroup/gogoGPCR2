@@ -1,6 +1,5 @@
 from functools import partial
-from pathlib import Path
-from typing import List, Optional, Union
+from typing import List
 
 import hail as hl
 import pandas as pd
@@ -58,7 +57,7 @@ def import_mt(
 
 
 def get_position(gene: str, mapping: pd.DataFrame):
-    blocks = mapping.loc[gene, "VCF_block"].split(",")
+    blocks = mapping.loc[gene, "VCF_block"].split(",")  # type: ignore
     chromosome = mapping.loc[gene, "GRCh38_region"]
     start = mapping.loc[gene, "GRCh38_start"]
     end = mapping.loc[gene, "GRCh38_end"]

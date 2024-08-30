@@ -38,7 +38,6 @@ if TRAIT == "BT":
     df.columns = [s.replace("#", "_") for s in df.columns]
 
     for col in df.columns:
-
         assert df.loc[:, col].nunique() == 2, "Uh oh, column is not binary"
 
         df.loc[:, col] = df.loc[:, col].astype("Int64")
