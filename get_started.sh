@@ -1,3 +1,6 @@
+
+#!/bin/bash
+
 MY_SSH=$1
 GIT_EMAIL=$2
 GIT_USER=$3
