@@ -1,32 +1,30 @@
-
 [project]
-name = "gogoGPCR2"
+name = "gogogpcr2"
 version = "0.1.0"
+description = "Add your description here"
 authors = [
-    { name = "Jakob madsen", email = "jsmadsen@sund.ku.dk" },
-    { name = "jsture", email = "jsmadsen@sund.ku.dk" },
+    { name = "jsture", email = "jakobsturemadsen@gmail.com" }
 ]
-description = "Default template for PDM package"
-readme = "README.md"
 dependencies = [
-    "hail>=0.2.127",
-    "jupyterlab>=4.1.1",
-    "pandas==2.2",
-    "dxpy>=0.351.0",
-    "pyzmq==25.1.2",
+    "hail==0.2.116",
+    "numpy==1.23.5",
+    "scipy==1.9.3",
+    "jupyterlab>=4.2.5",
+    "pre-commit>=3.8.0",
 ]
-requires-python = "==3.12.*"
-license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">= 3.8"
 
-[project.urls]
-"Homepage" = "https://github.com/HauserGroup/gogoGPCR2"
-"Bug Tracker" = "https://github.com/HauserGroup/gogoGPCR2/issues"
-[tool.pdm]
-distribution = false
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.pdm.dev-dependencies]
-dev = [
-    "pre-commit>=3.6.1",
-    "ruff>=0.2.1",
-    "black>=24.2.0",
-]
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gogogpcr2"]
