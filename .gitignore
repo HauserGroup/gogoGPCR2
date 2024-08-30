@@ -130,13 +130,10 @@ dmypy.json
 
 # Hail
 *.ht
-*.mt 
+*.mt
 
 # Mac
 .DS_Store
-
-# Large
-data/TASR*
 
 # Misc
 scratch/
