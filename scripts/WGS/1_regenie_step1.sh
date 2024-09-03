@@ -17,8 +17,7 @@ run_regenie_step1="regenie --step 1 --bt \
  --bsize 1000 \
  --write-null-firth \
  --lowmem --lowmem-prefix tmp_preds \
- --verbose --threads 16 \
- --covarExcludeList BMI_STD_PRS 
+ --verbose --threads 16
 "
 
 dx run swiss-army-knife -iin="${dir}/ukb_allChrs.bed" \
@@ -37,7 +36,6 @@ run_regenie_step1="regenie --step 1 \
  --bsize 1000 \
  --lowmem --lowmem-prefix tmp_preds \
  --verbose --threads 16 \
- --covarExcludeList BMI_STD_PRS \
  --apply-rint
 "
 
