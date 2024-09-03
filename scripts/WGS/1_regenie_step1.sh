@@ -14,6 +14,7 @@ run_regenie_step1="regenie --step 1 --bt \
  --bed ukb_allChrs \
  --phenoFile ${data_file_dir}/phenotypes/phenos.BT.final.tsv --covarFile ${data_file_dir}/Input_regenie/covariates.tsv \
  --extract ${regenie_file_dir}/WGS_qc_pass.snplist --keep ${regenie_file_dir}/WGS_qc_pass.id \
+ --remove /mnt/project/Data/Regenie/Input_regenie/samples_to_remove.tsv \
  --bsize 1000 \
  --write-null-firth \
  --lowmem --lowmem-prefix tmp_preds \
@@ -33,6 +34,7 @@ run_regenie_step1="regenie --step 1 \
  --bed ukb_allChrs \
  --phenoFile ${data_file_dir}/phenotypes/phenos.QT.final.tsv --covarFile ${data_file_dir}/Input_regenie/covariates.tsv \
  --extract ${regenie_file_dir}/WGS_qc_pass.snplist --keep ${regenie_file_dir}/WGS_qc_pass.id \
+ --remove /mnt/project/Data/Regenie/Input_regenie/samples_to_remove.tsv \
  --bsize 1000 \
  --lowmem --lowmem-prefix tmp_preds \
  --verbose --threads 16 \
