@@ -18,8 +18,7 @@
     "--minimal",
     "--pick",
     "--pick_order",
-    "mane",
-    "--mane_select",
+    "mane_select",
     "--assembly",
     "GRCh38",
     "-o",
@@ -28,7 +27,7 @@
     "--dir_cache",
     "/root/.vep/",
     "--fasta",
-    "/root/.vep/homo_sapiens/103_GRCh38/Homo_sapiens.GRCh38.dna.toplevel.fa.gz",
+    "/root/.vep/homo_sapiens/109_GRCh38/Homo_sapiens.GRCh38.dna.toplevel.fa.gz",
     "--plugin",
     "LoF,loftee_path:/root/.vep/Plugins/loftee,human_ancestor_fa:/root/.vep/human_ancestor.fa,conservation_file:/root/.vep/loftee.sql,gerp_bigwig:/root/.vep/gerp_conservation_scores.homo_sapiens.GRCh38.bw"
   ],
