@@ -25,4 +25,4 @@ run_merge="cp /mnt/project/Bulk/Genotype\ Results/Genotype\ calls/ukb22418_c[1-9
 
 dx run swiss-army-knife \
    -icmd="${run_merge}" --tag="Step1_merge" --instance-type "mem1_ssd1_v2_x16"\
-   --destination="/Data/Regenie/Step1/" --brief --yes 
+   --destination="/WGS_Javier/Data/Input_regenie/" --brief --yes 

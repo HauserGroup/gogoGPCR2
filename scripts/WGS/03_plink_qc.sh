@@ -14,7 +14,7 @@
 # - WGS_qc_pass.id
 
 #set output directory (also location of merged files)
-data_file_dir="/Data/Regenie/Step1/"
+data_file_dir="/Data/Input_regenie"
 
 run_plink_qc="plink2 --bfile ukb_allChrs\
  --autosome\

@@ -4,17 +4,16 @@
 # Run this script using sh 1_regenie_step1.sh on the command line on your machine
 
 #output directory - this should also be where the files in 02-step1-qc-filter.sh end up
-data_file_dir="/mnt/project/Data"
-regenie_file_dir="/mnt/project/Data/Regenie/Step1"
-dir="/Data/Regenie/Step1"
+data_file_dir="/mnt/project/WGS_Javier/Data"
+regenie_file_dir="/mnt/project/WGS_Javier/Data/Input_regenie"
+dir="WGS_Javier/Data/Input_regenie"
 
 # Binary treat
 run_regenie_step1="regenie --step 1 --bt \
  --out phenos.BT.step1 \
  --bed ukb_allChrs \
- --phenoFile ${data_file_dir}/phenotypes/phenos.BT.final.tsv --covarFile ${data_file_dir}/Input_regenie/covariates.tsv \
+ --phenoFile ${data_file_dir}/phenotypes/phenos.BT.final.tsv --covarFile ${regenie_file_dir}/covariates.tsv \
  --extract ${regenie_file_dir}/WGS_qc_pass.snplist --keep ${regenie_file_dir}/WGS_qc_pass.id \
- --remove /mnt/project/Data/Regenie/Input_regenie/samples_to_remove.tsv \
  --bsize 1000 \
  --write-null-firth \
  --lowmem --lowmem-prefix tmp_preds \
@@ -32,9 +31,8 @@ dx run swiss-army-knife -iin="${dir}/ukb_allChrs.bed" \
 run_regenie_step1="regenie --step 1 \
  --out phenos.QT.step1 \
  --bed ukb_allChrs \
- --phenoFile ${data_file_dir}/phenotypes/phenos.QT.final.tsv --covarFile ${data_file_dir}/Input_regenie/covariates.tsv \
+ --phenoFile ${data_file_dir}/phenotypes/phenos.QT.final.tsv --covarFile ${regenie_file_dir}/covariates.tsv \
  --extract ${regenie_file_dir}/WGS_qc_pass.snplist --keep ${regenie_file_dir}/WGS_qc_pass.id \
- --remove /mnt/project/Data/Regenie/Input_regenie/samples_to_remove.tsv \
  --bsize 1000 \
  --lowmem --lowmem-prefix tmp_preds \
  --verbose --threads 16 \
