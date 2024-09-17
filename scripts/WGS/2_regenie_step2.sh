@@ -26,6 +26,8 @@ run_regenie_step2="regenie --step 2 --bt \
   --pred ${regenie_file_dir}/phenos.BT.step1_pred_new.list \
   --bsize 200 \
   --set-list "${wgs_dir}/GIPR_test.setlist" \
+  --anno-file "${wgs_dir}/GIPR_test.annotations" \
+  --mask-def "${wgs_dir}/GIPR_test.masks" \
   --verbose
 "
 
@@ -52,6 +54,8 @@ run_regenie_step2="regenie --step 2 \
   --pred "${regenie_file_dir}/phenos.QT.step1_pred_new.list" \
   --bsize 200 \
   --set-list "${wgs_dir}/GIPR_test.setlist" \
+  --anno-file "${wgs_dir}/GIPR_test.annotations" \
+  --mask-def "${wgs_dir}/GIPR_test.masks" \
   --verbose
 "
 
