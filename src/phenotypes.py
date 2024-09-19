@@ -69,7 +69,9 @@ def get_pheno_fields(participant, fields: list) -> list:
     phenos = "|".join(fields)
 
     pheno_fields = list(
-        participant.find_fields(lambda f: bool(re.match(f"^p({phenos})\D", f.name)))  # type: ignore
+        # Not always followed by a digit, sometimes (dates: first time ... reported) do not have and then are not included
+        #participant.find_fields(lambda f: bool(re.match(f"^p({phenos})\D", f.name)))  
+        participant.find_fields(lambda f: bool(re.search(f"({phenos})", f.name)))  # type: ignore
     )
 
     return [f.name for f in pheno_fields]
