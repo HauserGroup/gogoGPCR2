@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this code or parts hereof, please cite the associated article as below."
+message: "If you use this code or parts hereof, please cite the article as below."
 authors:
   - family-names: "Sture Madsen"
     given-names: "Jakob"
@@ -7,7 +7,7 @@ authors:
   - family-names: "Hauser"
     given-names: "Alexander"
     orcid: "https://orcid.org/0000-0003-1098-6419"
-title: "gogoGPCR"
+title: "gogoGPCR2"
 version: 0.1.0
 date-released: 2024-06-13
 url: "https://github.com/jsture/gogoGPCR2"
