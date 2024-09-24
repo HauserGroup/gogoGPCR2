@@ -5,11 +5,13 @@
 [![Orcid: Jakob](https://img.shields.io/badge/Jakob-bar?style=flat&logo=orcid&labelColor=white&color=grey
 )](https://orcid.org/0000-0002-2841-7284)
 
+**Note that much of the code is custom to the project and may not be directly applicable to other projects. Please contact the authors for assitance and collaboration on using this code**
+
 gogoGPCR2 is a framework for performing burden testing on UK Biobank Research Analysis Platform (RAP).
 
-gogoGPCR2 can perform burden testing on Whole-Exome Sequencing (WES) and Whole Genome Sequencing (WGS) data.
+gogoGPCR2 can be used as inspiration for burden testing on Whole-Exome Sequencing (WES) and Whole Genome Sequencing (WGS) data in the UKB.
 
-This repo contains a series of notebooks, for pre-processing and quality controlling phenotype and genetic data, a Dockerfile for pre-processing phenotypes with PHESANT, and a series of scripts, for performing burden testing, with regenie. For information on running individual notebooks and scripts, see notebooks/[WES/WGS]/README.md and scripts/[WES/WGS]/README.md, respectively.
+This repo contains a series of notebooks, for pre-processing and quality controlling phenotype and genetic data, a Dockerfile for pre-processing phenotypes with PHESANT, and a series of scripts, for performing burden testing, with regenie. For information on running individual notebooks and scripts, see `notebooks/[WES/WGS]/README.md` and `scripts/[WES/WGS]/README.md`, respectively.
 
 Despite the name, gogoGPCR2 can be run for any (set of) gene(s).
 
