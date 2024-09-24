@@ -1,0 +1,15 @@
+Options in effect:
+  --step 2 \
+  --qt \
+  --test additive \
+  --bgen /mnt/project/GLP2R/metabolic.bgen \
+  --sample /mnt/project/GLP2R/metabolic.sample \
+  --ref-first \
+  --extract /mnt/project/GLP2R/d470n.keep.txt \
+  --keep /mnt/project/GLP2R/no_hom.id \
+  --phenoFile /mnt/project/GLP2R/metabolic.QT.final.tsv \
+  --covarFile /mnt/project/GLP2R/covariates.tsv \
+  --pred /mnt/project/GLP2R/metabolic.QT.d470n.step1_pred.list \
+  --bsize 200 \
+  --out metabolic.QT.additive.D470N \
+  --verbose
