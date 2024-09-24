@@ -13,11 +13,11 @@ This repo contains a series of notebooks, for pre-processing and quality control
 
 Despite the name, gogoGPCR2 can be run for any (set of) gene(s).
 
-## Usage 
+## Usage
 
 Notebooks and scripts should be run in numerical order.
 
 Notebooks and scripts starting with "0*" should only be run once and the generated file can be re-used for further analyses.
 
 ## Citation
-
+Kizilkaya, H.S., Sørensen, K.V., Madsen, J.S. et al. Characterization of genetic variants of GIPR reveals a contribution of β-arrestin to metabolic phenotypes. Nat Metab 6, 1268–1281 (2024). https://doi.org/10.1038/s42255-024-01061-4
