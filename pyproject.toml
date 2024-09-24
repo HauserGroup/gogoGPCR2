@@ -3,7 +3,7 @@ name = "gogogpcr2"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
-    { name = "jsture", email = "jakobsturemadsen@gmail.com" }
+    { name = "jsture", email = "jsmadsen@sund.ku.dk" }
 ]
 dependencies = [
     "hail==0.2.116",
