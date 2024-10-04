@@ -48,11 +48,14 @@ def pheno_search(
     [type]
         [description]
     """
-    ukb = dict(zip(ukb_coding.FieldID.astype(str), ukb_coding.Field))
-    custom = dict(zip(custom_coding.FieldID.astype(str), custom_coding.Field))
+    ukb = dict(zip(ukb_coding.field_id.astype(str), ukb_coding.title))
+    custom = dict(zip(custom_coding.field_id.astype(str), custom_coding.title))
+    
     both = {**ukb, **custom}
+    
+    # Safely return the phenotype name or a default message if not found
+    return both.get(str(x), "Phenotype not found")
 
-    return both[str(x)]
 
 def plot_BT(
     df,
