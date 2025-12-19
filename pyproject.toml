@@ -1,33 +1,16 @@
 [project]
 name = "gogogpcr2"
 version = "0.1.0"
-description = "Add your description here"
 authors = [
     { name = "jsture", email = "jsmadsen@sund.ku.dk" }
 ]
-dependencies = [
-    "hail==0.2.116",
-    "numpy==1.23.5",
-    "scipy==1.9.3",
-    "jupyterlab>=4.2.5",
-    "pre-commit>=3.8.0",
-    "dxdata>=0.0.1",
-    "dxpy>=0.381.0",
-    "pandas>=2.2.2",
-]
+description = "Add your description here"
 readme = "README.md"
-requires-python = ">= 3.8"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = []
-
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/gogogpcr2"]
+requires-python = ">=3.12.9"
+dependencies = [
+    "dxpy==0.396.0",
+    "hail==0.2.132",
+    "jupyterlab==3.6.1",
+    "pandas==2.2.3",
+    "pre-commit>=4.3.0",
+]
