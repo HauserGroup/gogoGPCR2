@@ -8,6 +8,7 @@ repos:
       - id: check-added-large-files
         args: ["--maxkb=5000"]
       - id: pretty-format-json
+        exclude: \.ipynb$
         args: [--autofix]
       - id: check-merge-conflict
       - id: detect-aws-credentials
