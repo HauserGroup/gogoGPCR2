@@ -4,7 +4,7 @@ install.packages("bigreadr")
 
 # Import the pcs file, obtained by running "pcs.ipynb"
 # TODO: pcs.ipynb is depcreated in favor of 02_covariates.ipynb
-PC_UKBB <- bigreadr::fread2(
+pc_ukbb <- bigreadr::fread2(
     "pcs.csv",
     select = c("eid", paste0("p22009_a", 1:16))
 )
@@ -18,7 +18,7 @@ all_centers <- read.csv(
 
 # Compute distance to each group
 all_sq_dist <- apply(all_centers[-1], 1, function(one_center) {
-    rowSums(sweep(PC_UKBB[-1], 2, one_center, "-")^2)
+    rowSums(sweep(pc_ukbb[-1], 2, one_center, "-")^2)
 })
 thr_sq_dist <- max(dist(all_centers[-1])^2) * 0.002 / 0.16
 
@@ -35,5 +35,5 @@ group <- apply(all_sq_dist, 1, function(x) {
 })
 
 # Format data frame and export
-df <- data.frame(PC_UKBB$eid, group)
+df <- data.frame(pc_ukbb$eid, group)
 write.csv(df, "ancestry.csv")
