@@ -4,6 +4,8 @@ from typing import List
 import hail as hl
 import pandas as pd
 
+import warnings
+
 
 def import_mt(
     genes: List[str],
@@ -13,6 +15,12 @@ def import_mt(
     field_id: int = 23157,
 ) -> hl.matrixtable.MatrixTable:
     """Maps a (list of) genes to their corresponding VCF file and region before import as Hail MatrixTable
+
+    .. deprecated::
+        This function is hard deprecated and will be removed in a future version.
+        hl.import_gvcfs() is no longer available in recent Hail versions.
+        See WGS 01_QC notebook implementation for alternatives.
+
     Parameters
     ----------
     genes : List[str]
@@ -28,6 +36,13 @@ def import_mt(
     hl.matrixtable.MatrixTable
         MT of all samples with all variants located within specified genes
     """
+    warnings.warn(
+        "import_mt() is hard deprecated. hl.import_gvcfs() is no longer available. "
+        "See WGS 01_QC notebook implementation for alternatives.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+
     get_vcfs = partial(
         lookup_vcfs,
         mapping=mapping,
@@ -65,7 +80,7 @@ def get_position(gene: str, mapping: pd.DataFrame):
     return chromosome, blocks, start, end
 
 
-def lookup_regions(gene: str, mapping: pd.DataFrame) -> hl.expr.LocusExpression:
+def lookup_regions(gene: str, mapping: pd.DataFrame):
     chromosome, _, start, end = get_position(gene, mapping)
 
     region = [
@@ -92,6 +107,12 @@ def smart_split_multi_mt(
     mt: hl.matrixtable.MatrixTable, left_aligned=False
 ) -> hl.matrixtable.MatrixTable:
     """Split multiple alleles into bi-allelic in a clever way
+
+    .. deprecated::
+        This function is soft deprecated and will be removed in a future version.
+        ML-corrected is already bi-allelic.
+
+
     Parameters
     ----------
     mt : hl.matrixtable.MatrixTable
@@ -103,6 +124,11 @@ def smart_split_multi_mt(
     hl.matrixtable.MatrixTable
         MT with only bi-allelic sites
     """
+    warnings.warn(
+        "smart_split_multi_mt() is soft deprecated. ML-corrected is already bi-allelic",
+        DeprecationWarning,
+        stacklevel=2,
+    )
 
     mt = mt.key_rows_by("locus", "alleles")
 
@@ -115,3 +141,58 @@ def smart_split_multi_mt(
     mt = split.union_rows(bi)
 
     return mt
+
+
+def make_single_gene_setlist(
+    mt: hl.matrixtable.MatrixTable, set_list_file: str = "/tmp/GIPR.setlist"
+):
+    """Create a SETLIST file for VEP annotation from a Hail MatrixTable
+
+    .. warning::
+        This function only supports single-gene MatrixTables. For multi-gene MTs,
+        filter to one gene first or call this function separately for each gene.
+
+    Parameters
+    ----------
+    mt : hl.matrixtable.MatrixTable
+        Hail MatrixTable containing variants from a SINGLE gene
+    set_list_file : str
+        Output path for the setlist file
+
+    Returns
+    -------
+    None
+        Writes a SETLIST file to specified path
+
+    Raises
+    ------
+    ValueError
+        If the MatrixTable contains variants from multiple genes or chromosomes
+    """
+    # Validate single gene/chromosome
+    gene_symbols = mt.aggregate_rows(
+        hl.agg.collect_as_set(mt.vep.transcript_consequences.gene_symbol)
+    )
+    chromosomes = mt.aggregate_rows(hl.agg.collect_as_set(mt.locus.contig))
+
+    if len(gene_symbols) > 1:
+        raise ValueError(
+            f"MatrixTable contains {len(gene_symbols)} genes: {gene_symbols}. "
+            "make_setlist() only supports single-gene MTs. Filter to one gene first."
+        )
+
+    if len(chromosomes) > 1:
+        raise ValueError(
+            f"MatrixTable spans {len(chromosomes)} chromosomes: {chromosomes}. "
+            "make_setlist() requires all variants on the same chromosome."
+        )
+
+    # SETLIST file
+    position = mt.aggregate_rows(hl.agg.min(mt.locus.position))
+    names = mt.varid.collect()
+    names_str = ",".join(names)
+
+    line = f"{list(gene_symbols)[0]}\t{list(chromosomes)[0]}\t{position}\t{names_str}"
+
+    with open(set_list_file, "w") as f:
+        f.write(line)
